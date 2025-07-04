@@ -18,7 +18,7 @@
 #         run: echo "Deploying..."
   
 name: Events Demo 1
-on: push
+on: [ push,workflow_dispatch ]
 jobs:
   test:
     runs-on: ubuntu-latest
