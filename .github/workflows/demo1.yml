@@ -23,9 +23,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Output event data
-        run: echo "${{ toJSON(github.event) }}"
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: List the files
-        run: ls -ltr
+      - name: Checkout The code in the github repo
+        uses: actions/checkout@v4
+      - name: Installing NodeJs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Installing dependences for the project
+        run: npm ci
+      - name: Running the test command from the project
+        run: npm test
+    
