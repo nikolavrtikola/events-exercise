@@ -20,7 +20,7 @@
 name: Events Demo 1
 on: push
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Output event data
@@ -31,7 +31,15 @@ jobs:
         run: npm ci
       - name: Test code
         run: npm run test
+  
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code for the build process
+        uses: actions/checkout@v3
+      - name: Install Dependences for build
+        run: npm ci
       - name: Build code
         run: npm run build
       - name: Deploy project
-        run: echo "Deploying..."
+        run: echo "Deploying...Just echo!!!"
