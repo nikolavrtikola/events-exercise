@@ -1,4 +1,4 @@
-name: Events Demo 1
+name: different name
 on: [ workflow_dispatch ]
 jobs:
   test:
